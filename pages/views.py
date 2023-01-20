@@ -19,3 +19,8 @@ def patients_view(request, *args, **kwargs):
     print(request)
     print(request.path)
     return HttpResponse('<h2>Patients</h2>')
+
+def result_view(request, *args, **kwargs):
+    ss = request.GET.get('ss', None)
+    return render(request, 'home.html', {'ss': ss})
+
