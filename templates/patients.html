@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container py-5">
+        <h2>Patient Details View</h2>
+        <div class="row">
+            
+            <div class="col-lg-12 mb-4 mb-lg-0">
+                <h4>Default</h4>
+
+                <div class="accordion" id="accordion1">
+                    <div class="card card-default">
+                        <div class="card-header" id="collapse1HeadingOne">
+                            <h4 class="card-title m-0">
+                                <a class="accordion-toggle" data-toggle="collapse" data-target="#collapse1One" aria-expanded="true" aria-controls="collapse1One">
+                                    Accordion Title 1
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse1One" class="collapse show" aria-labelledby="collapse1HeadingOne" style="">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <span class="img-thumbnail d-block">
+                                            <img class="img-fluid" src="{% static 'img/blog/square/blog-4.jpg' %}" alt="Project Image">
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-2 py-2">
+                                        <h5>Name</h5>
+                                        <p>{{ patient.patient_name }}</p>
+                                    </div>
+                                    <div class="col-lg-2 py-2">
+                                        <h5>Date of Birth</h5>
+                                        <p>{{ patient.date_of_birth }}</p>
+                                    </div>
+                                    <div class="col-lg-2 py-2">
+                                        <h5>Address</h5>
+                                        <p>{{ patient.address }}</p>
+                                    </div>
+                                    <div class="col-lg-2 py-2">
+                                        <h5>Contacts</h5>
+                                        <p>Phone: {{ patient.phone_number }}</p>
+                                        <p>Email: {{ patient.email }}</p>
+                                    </div>
+                                    <div class="col-lg-2 py-2">
+                                        <h5>Sex</h5>
+                                        <p>{{ patient.sex }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-default">
+                        <div class="card-header" id="collapse1HeadingTwo">
+                            <h4 class="card-title m-0">
+                                <a class="accordion-toggle" data-toggle="collapse" data-target="#collapse1Two" aria-expanded="true" aria-controls="collapse1Two">
+                                    Accordion Title 1
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse1Two" class="collapse show" aria-labelledby="collapse1HeadingTwo" style="">
+                            <div class="card-body">
+                                <p class="mb-0">Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor. Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor. Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-default">
+                        <div class="card-header" id="collapse1HeadingThree">
+                            <h4 class="card-title m-0">
+                                <a class="accordion-toggle" data-toggle="collapse" data-target="#collapse1Three" aria-expanded="true" aria-controls="collapse1Three">
+                                    Accordion Title 1
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse1Three" class="collapse show" aria-labelledby="collapse1HeadingThree" style="">
+                            <div class="card-body">
+                                <p class="mb-0">Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor. Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor. Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

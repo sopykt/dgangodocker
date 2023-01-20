@@ -15,10 +15,10 @@ def home_view(request, *args, **kwargs):
     # return HttpResponse('<h2>Hello World</h2>')
     return render(request, 'home.html', {})
 
-def patients_view(request, *args, **kwargs):
-    print(request)
-    print(request.path)
-    return HttpResponse('<h2>Patients</h2>')
+# def patients_view(request, *args, **kwargs):
+#     print(request)
+#     print(request.path)
+#     return HttpResponse('<h2>Patients</h2>')
 
 def result_view(request, *args, **kwargs):
     ss = request.GET.get('ss', None)
