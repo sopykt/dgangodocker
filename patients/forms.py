@@ -5,8 +5,7 @@ class Patient_form(forms.ModelForm):
     # Not necessory but override model form field with django form field
     patient_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': 'special'}))
     date_of_birth = forms.DateField()
-    # another way to insert initial
-    address = forms.CharField(max_length=255, initial='Thapyay street, Insein township')
+    address = forms.CharField(max_length=255)
     phone_number = forms.CharField(max_length=255)
     email = forms.EmailField()
     sex = forms.ChoiceField(choices=(('M', 'Male'), ('F', 'Female'), ('O', 'Other')))
@@ -31,7 +30,8 @@ class Patient_form(forms.ModelForm):
 class Django_pure_patient_form(forms.Form):
     patient_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': 'special'}))
     date_of_birth = forms.DateField()
-    address = forms.CharField(max_length=255)
+    # another way to insert initial
+    address = forms.CharField(max_length=255, initial='Thapyay street, Insein township')
     phone_number = forms.CharField(max_length=255)
     email = forms.EmailField()
     sex = forms.ChoiceField(choices=(('M', 'Male'), ('F', 'Female'), ('O', 'Other')))

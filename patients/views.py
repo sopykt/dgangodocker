@@ -4,7 +4,9 @@ from .forms import Patient_form, Django_pure_patient_form
 
 # Create your views here.
 def patient_create_django_pure_view(request):
-    form = Django_pure_patient_form(request.POST or None)
+    # one way to add initial
+    initial_data = {'date_of_birth': '1980-05-14'}
+    form = Django_pure_patient_form(request.POST or None, initial=initial_data)
     visitor = request.user
     if form.is_valid():
         form_status = str(visitor) + ' post Patient Django Form'
@@ -21,9 +23,9 @@ def patient_create_django_pure_view(request):
 
 
 def patient_create_model_view(request):
-    # one way to add initial
-    initial_data = {'date_of_birth': '1980-05-14'}
-    form = Patient_form(request.POST or None, initial=initial_data)
+    # edit existing Patient object
+    obj = Patient.objects.get(id=1)
+    form = Patient_form(request.POST or None, instance=obj)
     visitor = request.user
     if form.is_valid():
         form_status = str(visitor) + ' post Patient Model Form'
