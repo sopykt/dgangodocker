@@ -11,7 +11,7 @@
                     <p class="mb-0">Add new patient to our django database.</p>
                 </div>
                 <form method="POST"> {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ form.as_div }}
                     <input type="submit" value="Save" />
                 </form>
                 
