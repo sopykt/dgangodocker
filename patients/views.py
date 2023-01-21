@@ -21,7 +21,9 @@ def patient_create_django_pure_view(request):
 
 
 def patient_create_model_view(request):
-    form = Patient_form(request.POST or None)
+    # one way to add initial
+    initial_data = {'date_of_birth': '1980-05-14'}
+    form = Patient_form(request.POST or None, initial=initial_data)
     visitor = request.user
     if form.is_valid():
         form_status = str(visitor) + ' post Patient Model Form'
