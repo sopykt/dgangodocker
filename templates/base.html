@@ -82,18 +82,58 @@
                                             Home
                                         </a>
                                     </li>
-                                    <li>
-                                        <a      class = {% if request.path == '/create_patient_django_pure_form' %}
-                                                                'active'
-                                                        {% else %}
-                                                                ''
-                                                        {% endif %}
-                                                href  = "/create_patient_django_pure_form"
+                                    <li  class="dropdown">
+                                        <a      class="dropdown-item dropdown-toggle
+                                                    {% if request.path == '/create_patient_django_pure_form' %}
+                                                        active
+                                                    {% elif request.path == '/create_patient_modelform' %}
+                                                        active
+                                                    {% elif request.path == '/create_patient_rawform' %}
+                                                        active
+                                                    {% else %}
+                                                        
+                                                    {% endif %}"
                                         >
-                                            Django Form
+                                            Patient Form
+                                            <i class="fas fa-chevron-down"></i>
                                         </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a      class = "dropdown-item {% if request.path == '/create_patient_modelform' %}
+                                                                    active
+                                                                {% else %}
+                                                                    
+                                                                {% endif %}"
+                                                        href  = "/create_patient_modelform"
+                                                >
+                                                Model Form
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a      class = "dropdown-item {% if request.path == '/create_patient_django_pure_form' %}
+                                                                        active
+                                                                {% else %}
+                                                                        
+                                                                {% endif %}"
+                                                        href  = "/create_patient_django_pure_form"
+                                                >
+                                                Django Form
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a      class = "dropdown-item {% if request.path == '/create_patient_rawform' %}
+                                                                        active
+                                                                {% else %}
+                                                                        
+                                                                {% endif %}"
+                                                        href  = "/create_patient_rawform"
+                                                >
+                                                Raw Form
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    {% comment %} <li>
+                                    <li>
                                         <a      class = {% if request.path == '/patients' %}
                                                                 'active'
                                                         {% else %}
@@ -103,29 +143,9 @@
                                         >
                                             Patients
                                         </a>
-                                    </li> {% endcomment %}
-                                    <li>
-                                        <a      class = {% if request.path == '/create_patient_modelform' %}
-                                                                'active'
-                                                        {% else %}
-                                                                ''
-                                                        {% endif %}
-                                                href  = "/create_patient_modelform"
-                                        >
-                                            Model Form
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a      class = {% if request.path == '/create_patient_rawform' %}
-                                                                'active'
-                                                        {% else %}
-                                                                ''
-                                                        {% endif %}
-                                                href  = "/create_patient_rawform"
-                                        >
-                                            Raw Form
-                                        </a>
-                                    </li>
+                                    </li> 
+                                    
+                                    
                                     <li>
                                         <a      class = {% if request.path == '/admin' %}
                                                                 'active'
