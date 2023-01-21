@@ -10,10 +10,6 @@
                 <div class="overflow-hidden mb-4 pb-3">
                     <p class="mb-0">Add new patient to our django database.</p>
                 </div>
-                {% comment %} <form method="POST"> {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Save" />
-                </form> {% endcomment %}
                 <form role="form" class="needs-validation" novalidate="novalidate" action="" method="POST">{% csrf_token %}
                     <div class="form-group row">
                         <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Patient Name</label>

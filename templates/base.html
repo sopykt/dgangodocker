@@ -94,14 +94,25 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a      class = {% if request.path == '/create_patient' %}
+                                        <a      class = {% if request.path == '/create_patient_modelform' %}
                                                                 'active'
                                                         {% else %}
                                                                 ''
                                                         {% endif %}
-                                                href  = "/create_patient"
+                                                href  = "/create_patient_modelform"
                                         >
-                                            Create Patient
+                                            Model Form
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a      class = {% if request.path == '/create_patient_rawform' %}
+                                                                'active'
+                                                        {% else %}
+                                                                ''
+                                                        {% endif %}
+                                                href  = "/create_patient_rawform"
+                                        >
+                                            Raw Form
                                         </a>
                                     </li>
                                     <li>
