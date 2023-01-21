@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pages.views import home_view, result_view
-from patients.views import patient_detail_view, patient_create_model_view, patient_create_raw_view
+from patients.views import patient_detail_view, patient_create_model_view, patient_create_raw_view, patient_create_django_pure_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('patients', patient_detail_view, name='patient_detail_view'),
     path('create_patient_modelform', patient_create_model_view, name='patient_create_raw_view'),
     path('create_patient_rawform', patient_create_raw_view, name='patient_create_raw_view'),
+    path('create_patient_django_pure_form', patient_create_django_pure_view, name='patient_create_django_pure_view'),
     path('result', result_view, name='result')
 ]

@@ -1,15 +1,32 @@
 from django.shortcuts import render
 from .models import Patient
-from .forms import Patient_form
+from .forms import Patient_form, Django_pure_patient_form
 
 # Create your views here.
+def patient_create_django_pure_view(request):
+    form = Django_pure_patient_form(request.POST or None)
+    visitor = request.user
+    if form.is_valid():
+        form_status = str(visitor) + ' post Patient Django Form'
+    else:
+        form_status = str(visitor) + ' get Patient Django Form'
+    print(form_status)
+    if form.is_valid():
+        Patient.objects.create(**form.cleaned_data)
+        form = Django_pure_patient_form()
+    context = {
+        "form": form
+    }
+    return render(request, 'patient_create_django_pure_form.html', context)
+
+
 def patient_create_model_view(request):
     form = Patient_form(request.POST or None)
     visitor = request.user
     if form.is_valid():
-        form_status = str(visitor) + ' post Patient Form'
+        form_status = str(visitor) + ' post Patient Model Form'
     else:
-        form_status = str(visitor) + ' get Patient Form'
+        form_status = str(visitor) + ' get Patient Model Form'
     print(form_status)
     if form.is_valid():
         form.save()

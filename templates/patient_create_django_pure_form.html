@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-12 order-1 order-lg-2">
+							
+                <div class="overflow-hidden mb-1">
+                    <h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">Add new</strong> Patient</h2>
+                </div>
+                <div class="overflow-hidden mb-4 pb-3">
+                    <p class="mb-0">Add new patient to our django database.</p>
+                </div>
+                <form method="POST"> {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Save" />
+                </form>
+                
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}

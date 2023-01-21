@@ -83,6 +83,17 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a      class = {% if request.path == '/create_patient_django_pure_form' %}
+                                                                'active'
+                                                        {% else %}
+                                                                ''
+                                                        {% endif %}
+                                                href  = "/create_patient_django_pure_form"
+                                        >
+                                            Django Form
+                                        </a>
+                                    </li>
+                                    {% comment %} <li>
                                         <a      class = {% if request.path == '/patients' %}
                                                                 'active'
                                                         {% else %}
@@ -92,7 +103,7 @@
                                         >
                                             Patients
                                         </a>
-                                    </li>
+                                    </li> {% endcomment %}
                                     <li>
                                         <a      class = {% if request.path == '/create_patient_modelform' %}
                                                                 'active'
