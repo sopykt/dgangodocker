@@ -9,5 +9,6 @@ class Patient_form(ModelForm):
             'date_of_birth', 
             'address',
             'phone_number',
-            'email'
+            'email',
+            'sex'
         ]

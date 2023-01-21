@@ -5,94 +5,60 @@
             <div class="col-lg-12 order-1 order-lg-2">
 							
                 <div class="overflow-hidden mb-1">
-                    <h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">User</strong> Profile</h2>
+                    <h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">Add new</strong> Patient</h2>
                 </div>
                 <div class="overflow-hidden mb-4 pb-3">
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="mb-0">Add new patient to our django database.</p>
                 </div>
-                <form method="POST"> {% csrf_token %}
+                {% comment %} <form method="POST"> {% csrf_token %}
                     {{ form.as_p }}
                     <input type="submit" value="Save" />
-                </form>
-                <!-- <form role="form" class="needs-validation" novalidate="novalidate">
+                </form> {% endcomment %}
+                <form role="form" class="needs-validation" novalidate="novalidate" action="" method="POST">{% csrf_token %}
                     <div class="form-group row">
-                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">First name</label>
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Patient Name</label>
                         <div class="col-lg-9">
-                            <input class="form-control" required="" type="text" value="John">
+                            <input class="form-control" required="" type="text" name="patient_name" placeholder="John">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Last name</label>
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Date of Birth</label>
                         <div class="col-lg-9">
-                            <input class="form-control" required="" type="text" value="Doe">
+                            <input class="form-control" required="" type="date" name="date_of_birth">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Address</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" required="" type="text" name="address" placeholder="No. 123, Thapyay street, Ward 1, Insein, Yangon.">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Phone number</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" required="" type="tel" name="phone_number" placeholder="959972973223">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Email</label>
                         <div class="col-lg-9">
-                            <input class="form-control" required="" type="email" value="email@gmail.com">
+                            <input class="form-control" required="" type="email" name="email" placeholder="example@mail.com">
                         </div>
                     </div>
+                    
+                    
+                    
                     <div class="form-group row">
-                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">Company</label>
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Sex</label>
                         <div class="col-lg-9">
-                            <input class="form-control" type="text" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">Website</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="url" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">Address</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="text" value="" placeholder="Street">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2"></label>
-                        <div class="col-lg-6">
-                            <input class="form-control" type="text" value="" placeholder="City">
-                        </div>
-                        <div class="col-lg-3">
-                            <input class="form-control" type="text" value="" placeholder="State">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">Time Zone</label>
-                        <div class="col-lg-9">
-                            <select id="user_time_zone" class="form-control" size="0">
-                                <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                <option value="Alaska">(GMT-09:00) Alaska</option>
-                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                                <option value="Arizona">(GMT-07:00) Arizona</option>
-                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                            <select id="user_time_zone" name='sex' class="form-control" size="0">
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                                <option value="O">Other</option>
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Username</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" required="" type="text" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Password</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" required="" type="password" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Confirm password</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" required="" type="password" value="">
-                        </div>
-                    </div>
+                    
                     <div class="form-group row">
                         <div class="form-group col-lg-9">
                             
@@ -101,7 +67,7 @@
                             <input type="submit" value="Save" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
                         </div>
                     </div>
-                </form> -->
+                </form>
 
             </div>
         </div>
