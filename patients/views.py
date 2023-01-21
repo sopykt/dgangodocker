@@ -54,9 +54,9 @@ def patient_create_raw_view(request):
         Patient.objects.create(patient_name=patient_name,date_of_birth=date_of_birth,address=address,phone_number=phone_number,email=email,sex=sex)
     return render(request, 'patient_create_raw_form.html', {})
 
-def patient_detail_view(request):
-    patient = Patient.objects.get(id=1)
+def patient_detail_view(request, id):
+    patient = Patient.objects.get(id=id)
     context = {
         'patient': patient
     }
-    return render(request, 'patients.html', context)
+    return render(request, 'single_patient.html', context)

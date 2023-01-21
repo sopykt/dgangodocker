@@ -21,7 +21,7 @@ from patients.views import patient_detail_view, patient_create_model_view, patie
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', home_view, name='home'),
-    path('patients', patient_detail_view, name='patient_detail_view'),
+    path('patient/<int:id>', patient_detail_view, name='patient_detail_view'),
     path('create_patient_modelform', patient_create_model_view, name='patient_create_raw_view'),
     path('create_patient_rawform', patient_create_raw_view, name='patient_create_raw_view'),
     path('create_patient_django_pure_form', patient_create_django_pure_view, name='patient_create_django_pure_view'),
