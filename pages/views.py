@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from datetime import datetime
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
@@ -13,7 +14,12 @@ def home_view(request, *args, **kwargs):
     # print(request.headers)
     # print(request.headers['User-Agent'])
     # return HttpResponse('<h2>Hello World</h2>')
-    return render(request, 'home.html', {})
+    day = datetime.now().day
+    bg_img = 'img/bg/'+ str(day) +'.jpg'
+    context = {
+        'bg_img': bg_img
+    }
+    return render(request, 'home.html', context)
 
 # def patients_view(request, *args, **kwargs):
 #     print(request)
