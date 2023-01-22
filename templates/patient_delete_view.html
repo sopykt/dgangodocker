@@ -32,7 +32,7 @@
                                     <div class="form-row">
                                         <div class="form-group col">
                                             <input type="submit" value="Confirm Delete" class="btn btn-danger btn-modern float-right" data-loading-text="Loading...">
-                                            <a href="/patient/{{ patient.id }}" role="button" class="btn btn-info mb-2">Cancel</a>
+                                            <a href="{{ patient.get_absolute_url }}" role="button" class="btn btn-info mb-2">Cancel</a>
                                         </div>
                                     </div>
                                 </form>
