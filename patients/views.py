@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import Http404
 from .models import Patient
 from .forms import Patient_form, Django_pure_patient_form
 
@@ -52,7 +53,11 @@ def patient_create_raw_view(request):
     return render(request, 'patient_create_raw_form.html', {})
 
 def patient_detail_view(request, id):
-    patient = Patient.objects.get(id=id)
+    # first way to handle does not exist
+    try:
+        patient = Patient.objects.get(id=id)
+    except Patient.DoesNotExist:
+        raise Http404
     context = {
         'patient': patient
     }
