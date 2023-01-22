@@ -4,6 +4,13 @@ from .models import Patient
 from .forms import Patient_form, Django_pure_patient_form
 
 # Create your views here.
+def patients_list_view(request):
+    all_patients = Patient.objects.all()
+    context = {
+        "all_patients": all_patients
+    }
+    return render(request, 'patients_list.html', context)
+
 def patient_create_django_pure_view(request):
     # one way to add initial
     initial_data = {'date_of_birth': '1980-05-14'}

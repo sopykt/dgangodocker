@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container py-5">
+        <div class="row">
+            <div class="col">
+                <div class="row align-items-center mb-3">
+                    <div class="col-sm-3">
+                        <div class="pr-3 pr-sm-5 pb-3 pb-sm-0 border-right-light">
+                            <h4 class="mb-2">Patients</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <a href="/create_patient_rawform" role="button" class="btn btn-success mb-2">New Patient</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h5>All Patients</h5>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        No.
+                                    </th>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Age
+                                    </th>
+                                    <th>
+                                        Sex
+                                    </th>
+                                    <th>
+                                        Address
+                                    </th>
+                                    <th>
+                                        Contacts
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for patient in all_patients %}
+                                <tr>
+                                    <td>
+                                        {{ forloop.counter }}
+                                    </td>
+                                    <td>
+                                        {{ patient.id }}
+                                    </td>
+                                    <td>
+                                        {{ patient.patient_name }}
+                                    </td>
+                                    <td>
+                                        {{ patient.date_of_birth }}
+                                    </td>
+                                    <td>
+                                        {{ patient.sex }}
+                                    </td>
+                                    <td>
+                                        {{ patient.address }}
+                                    </td>
+                                    <td>
+                                        {{ patient.phone_number }} {{ patient.email }}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        
+    </div>
+{% endblock content %}
