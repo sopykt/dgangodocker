@@ -41,9 +41,6 @@ def patient_create_model_view(request):
     return render(request, 'patient_create_model_form.html', context)
 
 def patient_create_raw_view(request):
-    print(request.GET)
-    print(request.POST)
-    print(request.POST.get('patient_name'))
     patient_name = request.POST.get('patient_name')
     date_of_birth = request.POST.get('date_of_birth')
     address = request.POST.get('address')
