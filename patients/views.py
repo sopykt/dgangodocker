@@ -56,7 +56,7 @@ def patient_delete_view(request, id):
         query_name = request.POST.get('patient_name')
         if query_name == patient.patient_name:
             patient.delete()
-            return redirect('../')
+            return redirect('/patients')
     context = {
         'patient': patient
     }
