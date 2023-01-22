@@ -84,11 +84,11 @@
                                     </li>
                                     <li  class="dropdown">
                                         <a      class="dropdown-item dropdown-toggle
-                                                    {% if request.path == '/create_patient_django_pure_form' %}
+                                                    {% if 'create_patient_django_pure_form' in request.path %}
                                                         active
-                                                    {% elif request.path == '/edit_patient_modelform/1' %}
+                                                    {% elif 'edit_patient_modelform' in request.path %}
                                                         active
-                                                    {% elif request.path == '/create_patient_rawform' %}
+                                                    {% elif 'create_patient_rawform' in request.path %}
                                                         active
                                                     {% else %}
                                                         
@@ -99,34 +99,34 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a      class = "dropdown-item {% if request.path == '/edit_patient_modelform/1' %}
+                                                <a      class = "dropdown-item {% if 'edit_patient_modelform' in request.path %}
                                                                     active
                                                                 {% else %}
                                                                     
                                                                 {% endif %}"
-                                                        href  = "/edit_patient_modelform/1"
+                                                        href  = "/patients/5/edit_patient_modelform"
                                                 >
                                                 Model Form
                                                 </a>
                                             </li>
                                             <li>
-                                                <a      class = "dropdown-item {% if request.path == '/create_patient_django_pure_form' %}
+                                                <a      class = "dropdown-item {% if 'create_patient_django_pure_form' in request.path %}
                                                                         active
                                                                 {% else %}
                                                                         
                                                                 {% endif %}"
-                                                        href  = "/create_patient_django_pure_form"
+                                                        href  = "/patients/create_patient_django_pure_form"
                                                 >
                                                 Django Form
                                                 </a>
                                             </li>
                                             <li>
-                                                <a      class = "dropdown-item {% if request.path == '/create_patient_rawform' %}
+                                                <a      class = "dropdown-item {% if 'create_patient_rawform' in request.path %}
                                                                         active
                                                                 {% else %}
                                                                         
                                                                 {% endif %}"
-                                                        href  = "/create_patient_rawform"
+                                                        href  = "/patients/create_patient_rawform"
                                                 >
                                                 Raw Form
                                                 </a>

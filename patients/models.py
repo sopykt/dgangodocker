@@ -14,5 +14,5 @@ class Patient(models.Model):
         return self.patient_name
     
     def get_absolute_url(self): 
-        return reverse("patient_detail_view", kwargs={"id": self.id})
+        return reverse("patients:patient_detail_view", kwargs={"id": self.id})
     

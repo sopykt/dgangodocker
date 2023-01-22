@@ -11,9 +11,9 @@
                         </div>
                     </div>
                     <div class="col-sm-9">
-                        <a href="/edit_patient_modelform/{{ patient.id }}" role="button" class="btn btn-primary mb-2">Edit</a>
-                        <a href="/delete_patient_view/{{ patient.id }}" role="button" class="btn btn-danger mb-2">Delete Patient</a>
-                        <a href="/create_patient_rawform" role="button" class="btn btn-success mb-2">New Patient</a>
+                        <a href="{{ patient.get_absolute_url }}/edit_patient_modelform" role="button" class="btn btn-primary mb-2">Edit</a>
+                        <a href="{{ patient.get_absolute_url }}/delete_patient_view" role="button" class="btn btn-danger mb-2">Delete Patient</a>
+                        <a href="/patients/create_patient_rawform" role="button" class="btn btn-success mb-2">New Patient</a>
                     </div>
                 </div>
                 <div class="row">
