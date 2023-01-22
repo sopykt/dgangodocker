@@ -42,7 +42,8 @@ def patient_edit_model_view(request, id):
     print(form_status)
     if form.is_valid():
         form.save()
-        form = Patient_form()
+        # form = Patient_form()
+        return redirect('/patient/' + str(id))
     context = {
         'form': form
     }

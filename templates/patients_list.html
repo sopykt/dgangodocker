@@ -45,7 +45,7 @@
                             </thead>
                             <tbody>
                                 {% for patient in all_patients %}
-                                <tr>
+                                <tr class='clickable-row' data-href='patient/{{ patient.id }}'>
                                     <td>
                                         {{ forloop.counter }}
                                     </td>
