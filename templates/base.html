@@ -86,7 +86,7 @@
                                         <a      class="dropdown-item dropdown-toggle
                                                     {% if request.path == '/create_patient_django_pure_form' %}
                                                         active
-                                                    {% elif request.path == '/create_patient_modelform' %}
+                                                    {% elif request.path == '/edit_patient_modelform/1' %}
                                                         active
                                                     {% elif request.path == '/create_patient_rawform' %}
                                                         active
@@ -99,12 +99,12 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a      class = "dropdown-item {% if request.path == '/create_patient_modelform' %}
+                                                <a      class = "dropdown-item {% if request.path == '/edit_patient_modelform/1' %}
                                                                     active
                                                                 {% else %}
                                                                     
                                                                 {% endif %}"
-                                                        href  = "/create_patient_modelform"
+                                                        href  = "/edit_patient_modelform/1"
                                                 >
                                                 Model Form
                                                 </a>

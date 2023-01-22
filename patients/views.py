@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
 from .models import Patient
 from .forms import Patient_form, Django_pure_patient_form
@@ -23,9 +23,9 @@ def patient_create_django_pure_view(request):
     return render(request, 'patient_create_django_pure_form.html', context)
 
 
-def patient_create_model_view(request):
+def patient_edit_model_view(request, id):
     # edit existing Patient object
-    obj = Patient.objects.get(id=1)
+    obj = Patient.objects.get(id=id)
     form = Patient_form(request.POST or None, instance=obj)
     visitor = request.user
     if form.is_valid():
@@ -39,7 +39,20 @@ def patient_create_model_view(request):
     context = {
         'form': form
     }
-    return render(request, 'patient_create_model_form.html', context)
+    return render(request, 'patient_edit_model_form.html', context)
+
+def patient_delete_view(request, id):
+    
+    patient = get_object_or_404(Patient, id=id)
+    if request.method == 'POST':
+        query_name = request.POST.get('patient_name')
+        if query_name == patient.patient_name:
+            patient.delete()
+            return redirect('../')
+    context = {
+        'patient': patient
+    }
+    return render(request, 'patient_delete_view.html', context)
 
 def patient_create_raw_view(request):
     patient_name = request.POST.get('patient_name')
