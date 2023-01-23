@@ -14,3 +14,9 @@ def about_context():
         'motto': 'mottos'
     }
     return context
+
+def contact_context():
+    context ={
+        'contacts': 'contacts'
+    }
+    return context
