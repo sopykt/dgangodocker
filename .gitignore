@@ -1,2 +1,3 @@
 .djangodocker
 __pycache__/
+.vscode
