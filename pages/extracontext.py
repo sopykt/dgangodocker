@@ -10,7 +10,7 @@ def bg_img():
 
 def about_context():
     context = {
-        'mission': 'mission',
-        'motto': 'motto'
+        'mission': 'missions',
+        'motto': 'mottos'
     }
     return context
