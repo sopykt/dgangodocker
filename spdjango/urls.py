@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('patients/', include('patients.urls')),
-    path('', include('pages.urls')),
+    path('patients/', include('patients.urls', namespace='patients')),
+    path('', include('pages.urls', namespace='pages')),
     path("admin/", admin.site.urls),
 #     path('', home_view, name='home'),
 #     path('result', result_view, name='result')

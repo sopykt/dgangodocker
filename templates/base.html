@@ -13,11 +13,11 @@
                             <nav class="header-nav-top">
                                 <ul class="nav nav-light-text nav-pills">
                                     <li class="nav-item nav-item-anim-icon d-none d-md-block">
-                                        <a class="nav-link pl-0" href="/about"><i
+                                        <a class="nav-link pl-0" href="{% url 'pages:about' %}"><i
                                                 class="fas fa-angle-right"></i> About Us</a>
                                     </li>
                                     <li class="nav-item nav-item-anim-icon d-none d-md-block">
-                                        <a class="nav-link" href="/contact"><i
+                                        <a class="nav-link" href="{% url 'pages:contact' %}"><i
                                                 class="fas fa-angle-right"></i> Contact Us</a>
                                     </li>
                                     <li
@@ -181,7 +181,7 @@
                         <nav class="header-nav-top d-none d-md-flex">
                             <ul class="nav nav-light-text nav-pills">
                                 <li class="nav-item nav-item-anim-icon d-none d-sm-block">
-                                    <a class="nav-link pl-0" href="/about">About Us</a>
+                                    <a class="nav-link pl-0" href="{% url 'pages:about' %}">About Us</a>
                                 </li>
                             </ul>
                         </nav>
@@ -243,7 +243,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/contact"
+                        <a href="{% url 'pages:contact' %}"
                             class="btn btn-lg btn-outline btn-primary font-weight-semibold line-height-1 text-1 ml-2 d-none d-md-inline-block">CONTACT
                             US</a>
                         <a href="#" target="_blank"
@@ -347,7 +347,7 @@
                                     class="ml-1 ondarkbg text-decoration-none"> FAQ's</a></li>
                             <li><i class="fas fa-angle-right"></i><a href="#"
                                     class="ml-1 ondarkbg text-decoration-none"> Sitemap</a></li>
-                            <li><i class="fas fa-angle-right"></i><a href="/contact"
+                            <li><i class="fas fa-angle-right"></i><a href="{% url 'pages:contact' %}"
                                     class="ml-1 ondarkbg text-decoration-none"> Contact Us</a></li>
                         </ul>
                     </nav>
