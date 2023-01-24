@@ -1,4 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="row justify-content-md-center py-5">
+                    <div class="col-md-9">
+                        <div class="featured-box featured-box-primary text-left mt-0">
+                            <div class="box-content">
+                                <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-0">Get location data from lat, long.</h4>
+                                <p class="text-2 opacity-7">Get Myanmar location data in json format using api call.</p>
+                                <form action="{% url 'pages:preloads_mm_geo_api' %}" id="frmLostPassword" method="GET" class="needs-validation" novalidate="novalidate">
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <label class="font-weight-bold text-dark text-2">Enter lat, long format. (Eg. 18.838640, 95.082382)</label>
+                                            <input type="text" name="lat_long" placeholder="18.838640, 95.082382" class="form-control form-control-lg" required="">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <input type="submit" value="Confirm Delete" class="btn btn-danger btn-modern float-right" data-loading-text="Loading...">
+                                            <a href="/" role="button" class="btn btn-info mb-2">Cancel</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}

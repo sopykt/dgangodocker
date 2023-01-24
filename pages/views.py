@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from datetime import datetime
 from django.views.generic import TemplateView, RedirectView
@@ -19,7 +19,7 @@ class Home_view(TemplateView):
 class Redirect_soe(RedirectView):
     permanent = False
     query_string = True
-    pattern_name = 'pages:destination'
+    pattern_name = 'pages:soe_destination'
     def get_redirect_url(self, *args, **kwargs):
         request_instance = {
             'user': str(self.request.user),
@@ -29,15 +29,21 @@ class Redirect_soe(RedirectView):
         print(request_instance)
         return super().get_redirect_url(*args, **kwargs)
     
-class Redirect_ggl_soe(RedirectView):
-    pattern_name = 'pages:google_dest'
+class MM_geo_view(TemplateView):
+    template_name = 'mm_geo_api.html'
+    
+    
+class Redirect_preloads_mm_geo_api(RedirectView):
+    query_string = True
+    pattern_name = 'pages:redirect_mm_geo_api'
     def get_redirect_url(self, *args, **kwargs):
         return super().get_redirect_url(*args, **kwargs)
     
-class Redirect_ggl_dest(RedirectView):
-    url = 'https://google.com/'
-    def get_redirect_url(self, *args, **kwargs):
-        return super().get_redirect_url(*args, **kwargs)
+def redirect_mm_geo_api(request, *args, **kwargs):
+    dest_url = 'https://soepaing.pythonanywhere.com/api/' + request.GET.get('lat_long', 'abc')
+    return redirect(dest_url)
+    
+
 
 
 # Create your views here.
