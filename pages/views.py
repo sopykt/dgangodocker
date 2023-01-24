@@ -28,6 +28,16 @@ class Redirect_soe(RedirectView):
         }
         print(request_instance)
         return super().get_redirect_url(*args, **kwargs)
+    
+class Redirect_ggl_soe(RedirectView):
+    pattern_name = 'pages:google_dest'
+    def get_redirect_url(self, *args, **kwargs):
+        return super().get_redirect_url(*args, **kwargs)
+    
+class Redirect_ggl_dest(RedirectView):
+    url = 'https://google.com/'
+    def get_redirect_url(self, *args, **kwargs):
+        return super().get_redirect_url(*args, **kwargs)
 
 
 # Create your views here.
