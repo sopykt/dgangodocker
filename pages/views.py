@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from datetime import datetime
 from django.views.generic import TemplateView, RedirectView
+# import asyncio
+# from time import sleep
+# from asgiref.sync import sync_to_async
+# from .long_functions import long_task
+from .tasks import long_task
 
 # Class based view
 class Home_view(TemplateView):
@@ -34,10 +39,15 @@ class MM_geo_view(TemplateView):
     
     
 class Redirect_preloads_mm_geo_api(RedirectView):
+    
     query_string = True
     pattern_name = 'pages:redirect_mm_geo_api'
+    
     def get_redirect_url(self, *args, **kwargs):
+        long_task.delay(self.request.GET.get('lat_long', 'abc'))
+        print('This run')
         return super().get_redirect_url(*args, **kwargs)
+    
     
 def redirect_mm_geo_api(request, *args, **kwargs):
     dest_url = 'https://soepaing.pythonanywhere.com/api/' + request.GET.get('lat_long', 'abc')
