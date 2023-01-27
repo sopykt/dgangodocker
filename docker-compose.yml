@@ -1,2 +1,23 @@
 version: "3.8"
 services:
+  redis:
+    image: redis:7.0.8-alpine
+    restart: unless-stopped
+    expose:
+      - 6379
+  celery:
+    restart: unless-stopped
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    entrypoint: /app/celery-entrypoint.sh
+    environment:
+      DEBUG: ${DEBUG:-TRUE}
+      CELERY_BROKER_URL: "redis://redis:6379/0"
+      CELERY_RESULT_BACKEND: "redis://redis:6379/0"
+      DJANGO_DB: ${DJANGO_DB:-postgresql}
+      POSTGRES_HOST: ${POSTGRES_HOST:-db}
+      POSTGRES_NAME: ${POSTGRES_NAME:-postgres}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
