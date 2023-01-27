@@ -22,7 +22,7 @@
                             <div class="box-content">
                                 <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-0">Are you sure to delete this patient?</h4>
                                 <p class="text-2 opacity-7">Deleting cannot be undone.</p>
-                                <form action="./{{ patient.id }}" id="frmLostPassword" method="POST" class="needs-validation" novalidate="novalidate">{% csrf_token %} 
+                                <form action="{{ patient.get_absolute_url }}/delete_patient_view" id="frmLostPassword" method="POST" class="needs-validation" novalidate="novalidate">{% csrf_token %} 
                                     <div class="form-row">
                                         <div class="form-group col">
                                             <label class="font-weight-bold text-dark text-2">Enter patient name to delete.</label>

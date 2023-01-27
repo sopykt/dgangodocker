@@ -6,3 +6,4 @@ docker-compose.yml
 .git
 .gitignore
 lab.ipynb
+spdjango/settings.py
