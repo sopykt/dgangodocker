@@ -5,6 +5,26 @@ services:
     restart: unless-stopped
     expose:
       - 6379
+  django:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    entrypoint: /app/django-entrypoint.sh
+    volumes:
+      - static_volume:/app/static
+    expose:
+      - 8000
+    environment:
+      DEBUG: ${DEBUG:-TRUE}
+      CELERY_BROKER_URL: "redis://redis:6379/0"
+      CELERY_RESULT_BACKEND: "redis://redis:6379/0"
+      DJANGO_DB: ${DJANGO_DB:-postgresql}
+      POSTGRES_HOST: db
+      POSTGRES_NAME: ${POSTGRES_NAME:-postgres}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_PORT: 5432
   celery:
     restart: unless-stopped
     build: 
@@ -16,8 +36,30 @@ services:
       CELERY_BROKER_URL: "redis://redis:6379/0"
       CELERY_RESULT_BACKEND: "redis://redis:6379/0"
       DJANGO_DB: ${DJANGO_DB:-postgresql}
-      POSTGRES_HOST: ${POSTGRES_HOST:-db}
+      POSTGRES_HOST: db
       POSTGRES_NAME: ${POSTGRES_NAME:-postgres}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
-      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      POSTGRES_PORT: 5432
+    depends_on:
+      - django
+      - redis
+  nginx:
+    restart: always
+    image: nginx:1.23.3-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - static_volume:/app/static
+  db:
+    restart: unless-stopped
+    image: postgres:15-1-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: ${POSTGRES_NAME:-postgres}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    expose:
+      - 5432
