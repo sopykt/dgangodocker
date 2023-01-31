@@ -1,4 +1,9 @@
+
+
+
 docker-compose.yml
 .djangodocker
 .git
 .gitignore
+lab.ipynb
+spdjango/settings.py
