@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-5r8iu3o&dc3-=5)&x$f=n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", True)
 
-ALLOWED_HOSTS = ["127.0.0.1","0.0.0.0", "localhost", "djangodocker-env.eba-gwrfaxa5.ap-south-1.elasticbeanstalk.com", "172.31.14.215"]
+ALLOWED_HOSTS = ["127.0.0.1","0.0.0.0", "localhost", "djangodocker-env.eba-gwrfaxa5.ap-south-1.elasticbeanstalk.com", "172.31.14.215", "soepaing.com"]
 
 if os.environ.get("ALLOWED_HOSTS") is not None:
     try:
