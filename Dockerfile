@@ -10,7 +10,7 @@
 
 
 # If you have prebuild python dependency image
-FROM soepaing/djbaseimg:v1
+FROM soepaing/djbaseimg:requests
 ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 COPY . .
