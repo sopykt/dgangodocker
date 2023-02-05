@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-5r8iu3o&dc3-=5)&x$f=n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", True)
 
-ALLOWED_HOSTS = ["127.0.0.1","0.0.0.0", "localhost", "djangodocker-env.eba-gwrfaxa5.ap-south-1.elasticbeanstalk.com", "172.31.14.215", "soepaing.com"]
+ALLOWED_HOSTS = ["127.0.0.1","0.0.0.0", "localhost", ".elasticbeanstalk.com", "soepaing.com"]
 
 if os.environ.get("ALLOWED_HOSTS") is not None:
     try:
@@ -35,15 +35,15 @@ if os.environ.get("ALLOWED_HOSTS") is not None:
     except Exception as e:
         print("Cant set ALLOWED_HOSTS, using default instead")
 
-import requests
-EC2_PRIVATE_IP  =   None
-try:
-    EC2_PRIVATE_IP  =   requests.get('http://169.254.169.254/latest/meta-data/local-ipv4', timeout = 0.01).text
-except requests.exceptions.RequestException:
-    pass
+# import requests
+# EC2_PRIVATE_IP  =   None
+# try:
+#     EC2_PRIVATE_IP  =   requests.get('http://169.254.169.254/latest/meta-data/local-ipv4', timeout = 0.01).text
+# except requests.exceptions.RequestException:
+#     pass
 
-if EC2_PRIVATE_IP:
-    ALLOWED_HOSTS.append(EC2_PRIVATE_IP)
+# if EC2_PRIVATE_IP:
+#     ALLOWED_HOSTS.append(EC2_PRIVATE_IP)
 
 # Application definition
 
@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "patients",
     "patients.templatetags",
-    "themes"
+    "themes",
+    "ebhealthcheck.apps.EBHealthCheckConfig"
 ]
 
 MIDDLEWARE = [
