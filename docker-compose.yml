@@ -51,9 +51,20 @@ services:
     image: nginx:1.23.3-alpine
     ports:
       - 80:80
+      - 443:443
     volumes:
       - ./default.conf:/etc/nginx/conf.d/default.conf
       - static_volume:/app/staticfiles
+      - ./dhparam:/etc/nginx/dhparam
+      - ./certbot/conf:/etc/nginx/ssl
+      - ./certbot/data:/usr/share/nginx/html/letsencrypt
+  certbot:
+    image: certbot/certbot:latest
+    command: certonly --webroot --webroot-path=/usr/share/nginx/html/letsencrypt --email sopykt09@gmail.com --agree-tos --no-eff-email -d soepaing.com
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/logs:/var/log/letsencrypt
+      - ./certbot/data:/usr/share/nginx/html/letsencrypt
   db:
     restart: unless-stopped
     image: postgres:15.1-alpine
